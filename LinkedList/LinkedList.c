@@ -2,8 +2,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-void AddToLinkedList(LinkedList * linkedlist, int id, char *txt) {
-	if (linkedlist->counter >= 6)
+#define LIMIT 10
+void AddToLinkedList(LinkedList * linkedlist, int id, const char *txt) {
+	if (linkedlist->counter >= LIMIT)
 		RemoveLast(linkedlist);
 	Node * newnode = NewNode(id, txt);
 	if(linkedlist->counter != 0)
@@ -13,7 +14,11 @@ void AddToLinkedList(LinkedList * linkedlist, int id, char *txt) {
 }
 
 void MoveNodeToHead(LinkedList * linkedlist, Node * FoundNode, Node * LastNode) {
-	LastNode->next = FoundNode->next;
+	if (FoundNode->next == NULL) 
+		LastNode->next = NULL;
+	else
+		LastNode->next = FoundNode->next;
+
 	FoundNode->next = linkedlist->head;
 	linkedlist->head = FoundNode;
 }
@@ -21,6 +26,8 @@ void MoveNodeToHead(LinkedList * linkedlist, Node * FoundNode, Node * LastNode) 
 char * GetFromId(LinkedList * linkedlist, int id) {
 	Node * FoundNode = linkedlist->head;
 	Node * LastNode = NULL;
+	if (linkedlist->counter != 0 && FoundNode->id == id)
+		return FoundNode->txt;
 	int temp_counter = 0;
 	while (temp_counter != linkedlist->counter){
 		if (FoundNode->id == id) {
@@ -71,7 +78,7 @@ Node * NewNode(int id, char * txt) {
 
 
 void mainsssss() {
-	LinkedList * linkedlist = malloc(sizeof(LinkedList));
+	/*LinkedList * linkedlist = malloc(sizeof(LinkedList));
 	linkedlist->counter = 0;
 	linkedlist->head = NULL;
 	AddToLinkedList(linkedlist, 4, "Göteborg");
@@ -82,5 +89,5 @@ void mainsssss() {
 	AddToLinkedList(linkedlist, 13, "linkoping");
 	AddToLinkedList(linkedlist, 16, "Hallsberg");
 	
-	system("pause");
+	system("pause");*/
 }
