@@ -22,7 +22,7 @@ Node * GetFromId(LinkedList * linkedlist, int id) {
 	int temp_counter = 0;
 	while (1){
 		if (FoundNode->id == id) {
-			MoveNodeToHead(linkedlist, FoundNode);
+			MoveNodeToHead(linkedlist, FoundNode, LastNode);
 			return FoundNode;
 		}
 		LastNode = FoundNode;
@@ -76,7 +76,7 @@ void main() {
 	AddToLinkedList(linkedlist, 8, "Uppsala");
 	AddToLinkedList(linkedlist, 9, "Västerås");
 	AddToLinkedList(linkedlist, 2, "Malmö");
-	AddToLinkedList(linkedlist, 16, "Hallsberg");
-
 	AddToLinkedList(linkedlist, 13, "linkoping");
+	AddToLinkedList(linkedlist, 16, "Hallsberg");
+	AddToLinkedList(linkedlist, 16, "Hallsbergsss");
 }
