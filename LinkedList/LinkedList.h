@@ -15,6 +15,6 @@ typedef struct {
 
 void AddToLinkedList(LinkedList * linkedlist, int id, char *txt);
 void MoveNodeToHead(LinkedList * linkedlist, Node * node, Node * LastNode);
-Node * GetFromId(LinkedList * linkedlist, int id);
+char * GetFromId(LinkedList * linkedlist, int id);
 void RemoveLast(LinkedList * linkedlist);
 Node * NewNode(int id, char * txt);

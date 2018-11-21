@@ -13,17 +13,20 @@ void AddToLinkedList(LinkedList * linkedlist, int id, char *txt) {
 }
 
 void MoveNodeToHead(LinkedList * linkedlist, Node * FoundNode, Node * LastNode) {
-
+	LastNode->next = FoundNode->next;
+	FoundNode->next = linkedlist->head;
+	linkedlist->head = FoundNode;
 }
 
-Node * GetFromId(LinkedList * linkedlist, int id) {
+char * GetFromId(LinkedList * linkedlist, int id) {
 	Node * FoundNode = linkedlist->head;
 	Node * LastNode = NULL;
 	int temp_counter = 0;
-	while (1){
+	while (temp_counter != linkedlist->counter){
 		if (FoundNode->id == id) {
 			MoveNodeToHead(linkedlist, FoundNode, LastNode);
-			return FoundNode;
+			LastNode = NULL;
+			return FoundNode->txt;
 		}
 		LastNode = FoundNode;
 		FoundNode = FoundNode->next;
@@ -67,7 +70,7 @@ Node * NewNode(int id, char * txt) {
 
 
 
-void main() {
+void mainsssss() {
 	LinkedList * linkedlist = malloc(sizeof(LinkedList));
 	linkedlist->counter = 0;
 	linkedlist->head = NULL;
@@ -78,5 +81,6 @@ void main() {
 	AddToLinkedList(linkedlist, 2, "Malmö");
 	AddToLinkedList(linkedlist, 13, "linkoping");
 	AddToLinkedList(linkedlist, 16, "Hallsberg");
-	AddToLinkedList(linkedlist, 16, "Hallsbergsss");
+	
+	system("pause");
 }
