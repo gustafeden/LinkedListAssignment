@@ -13,5 +13,6 @@ public:
 	~LRUCache();
 	void AddToCache(int id, std::string txt);
 	std::string GetFromCache(int id);
+	std::stringstream print_cache();
 };
 

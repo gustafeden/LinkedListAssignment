@@ -1,4 +1,5 @@
 #include "LRUCache.h"
+#include <sstream>
 
 
 LRUCache::LRUCache()
@@ -25,4 +26,19 @@ std::string LRUCache::GetFromCache(int id) {
 		return "";
 	}
 		
+}
+std::stringstream LRUCache::print_cache() {
+	std::stringstream ss;
+	Node * temp = linkedlist->head;
+	if (temp != NULL)
+		ss << temp->id << " " << temp->txt << std::endl;
+	while (true) {
+		if (temp->next != NULL) {
+		ss << temp->next->id << " " << temp->next->txt << std::endl;
+		temp = temp->next;
+	}
+	else
+			break;
+	}
+	return ss;
 }
