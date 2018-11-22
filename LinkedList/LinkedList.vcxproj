@@ -115,7 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="DoubleLinkedList.cpp" />
+    <ClCompile Include="DoubleLinkedList.c" />
     <ClCompile Include="LinkedList.c" />
     <ClCompile Include="LRUCache.cpp" />
     <ClCompile Include="main.cpp" />
@@ -123,7 +123,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DisplayMessageEndpoint.h" />
-    <ClInclude Include="DoubleLinkedList.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="LRUCache.h" />
   </ItemGroup>
