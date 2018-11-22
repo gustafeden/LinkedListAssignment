@@ -21,13 +21,13 @@ std::string GetDestinationFrom(int destinationId, LRUCache * cache)
 void main()
 {
 	SetConsoleOutputCP(1252);
-	LRUCache * simplecache = new LRUCache();
+	LRUCache * cache = new LRUCache();
 	DisplayMessageEndpoint *endPoint = new DisplayMessageEndpoint();
 	while (true)
 	{
 		DisplayMessageEndpoint::DisplayEntry nextDisplayMessage = endPoint->GetDisplayMessage();
 		std::cout << nextDisplayMessage.time << "   " << nextDisplayMessage.newTime 
-			<< "      " << nextDisplayMessage.track << "  " << GetDestinationFrom(nextDisplayMessage.destinationId, simplecache)
+			<< "      " << nextDisplayMessage.track << "  " << GetDestinationFrom(nextDisplayMessage.destinationId, cache)
 			<< std::endl;
 	}
 }
