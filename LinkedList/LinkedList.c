@@ -1,10 +1,12 @@
+
 #include "LinkedList.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#define LIMIT 10
+#define CACHE_LIMIT 10
+
 void AddToLinkedList(LinkedList * linkedlist, int id, const char *txt) {
-	if (linkedlist->counter >= LIMIT)
+	if (linkedlist->counter >= CACHE_LIMIT)
 		RemoveLast(linkedlist);
 	Node * newnode = NewNode(id, txt);
 	if(linkedlist->counter != 0)

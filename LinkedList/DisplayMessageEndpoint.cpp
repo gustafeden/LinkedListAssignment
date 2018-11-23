@@ -2,7 +2,11 @@
 #include <random>
 #include <sstream>
 #include <iomanip>
+#ifdef __APPLE__
+#include <unistd.h>
+#elif defined _WIN32 || defined _WIN64
 #include <Windows.h>
+#endif
 //#include <vector>
 
 
