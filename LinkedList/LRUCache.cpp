@@ -1,7 +1,7 @@
 
 #include "LRUCache.h"
 #include <sstream>
-#define ifnnull(a) if(a != NULL)
+//#define ifnnull(a) if(a != NULL)
 
 LRUCache::LRUCache()
 {
@@ -19,7 +19,7 @@ void LRUCache::AddToCache(int id, std::string txt) {
 std::string LRUCache::GetFromCache(int id) {
 	char * txtFromList = nullptr;
 	txtFromList = GetFromId(this->linkedlist, id);
-	ifnnull(txtFromList){
+	if(txtFromList != NULL){
 		std::string s(txtFromList);
 		txtFromList = nullptr;
 		return s;
@@ -32,10 +32,10 @@ std::string LRUCache::GetFromCache(int id) {
 std::stringstream LRUCache::print_cache() {
 	std::stringstream ss;
 	Node * temp = linkedlist->head;
-	ifnnull (temp)
+	if (temp != NULL)
 		ss << temp->id << " " << temp->txt << std::endl;
 	while (true) {
-		ifnnull (temp->next) {
+		if (temp->next != NULL) {
 		ss << temp->next->id << " " << temp->next->txt << std::endl;
 		temp = temp->next;
 	}

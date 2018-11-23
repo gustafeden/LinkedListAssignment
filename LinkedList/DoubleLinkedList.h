@@ -17,4 +17,3 @@ typedef struct {
 void MoveNodeToHead(LinkedList * linkedlist, Node * node, Node * LastNode);
 //char * GetFromId(LinkedList * linkedlist, int id);
 void RemoveLast(LinkedList * linkedlist);
-Node * NewN

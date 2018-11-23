@@ -8,8 +8,8 @@
 std::string GetDestinationFrom(int destinationId, LRUCache * cache)
 {
 	std::string destinationtxt = cache->GetFromCache(destinationId);
-	if (!destinationtxt.size()) {
-		Sleep(20);
+	if (destinationtxt.size() != 0) {
+		Sleep(5);
 		return destinationtxt;
 	}
 	else {
