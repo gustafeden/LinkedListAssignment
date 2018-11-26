@@ -1,4 +1,3 @@
-
 #define _CRT_SECURE_NO_WARNINGS
 #pragma once
 typedef struct Node Node;
@@ -14,6 +13,7 @@ typedef struct {
 } LinkedList;
 
 //void AddToLinkedList(LinkedList * linkedlist, int id, const char *txt);
-void MoveNodeToHead(LinkedList * linkedlist, Node * node, Node * LastNode);
+void MoveNodeToHead(LinkedList * linkedlist, Node * node);
 //char * GetFromId(LinkedList * linkedlist, int id);
 void RemoveLast(LinkedList * linkedlist);
+Node * NewNode(int id, char * txt);
