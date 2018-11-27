@@ -1,5 +1,5 @@
 #pragma once
-#include "DoubleLinkedList.h"
+#include "LinkedList.h"
 #include <string>
 
 extern "C" void AddToLinkedList(LinkedList * linkedlist, int id, const char *txt);

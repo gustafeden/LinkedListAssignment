@@ -30,8 +30,6 @@ void MoveNodeToHead(LinkedList * linkedlist, Node * FoundNode) {
 		FoundNode->prev->next = FoundNode->next;
 		FoundNode->next->prev = FoundNode->prev;
 	}
-	
-	
 	linkedlist->head = FoundNode;
 	FoundNode->prev = NULL;
 	FoundNode->next = temp;
@@ -62,14 +60,15 @@ void RemoveLast(LinkedList * linkedlist) {
 	linkedlist->tail->prev = NULL;
 	free(linkedlist->tail);
 	linkedlist->tail = newtail;
+	newtail = NULL;
 	linkedlist->tail->next = NULL;
 	linkedlist->counter -= 1;
 }
 
 Node * NewNode(int id, char * txt) {
-	Node * newnode = malloc(sizeof(Node));
+	Node * newnode =(struct Node *) malloc(sizeof(Node));
 	newnode->id = id;
-	newnode->txt = malloc(sizeof(char) * strlen(txt) + 1);
+	newnode->txt =(char *) malloc(sizeof(char) * strlen(txt) + 1);
 	strcpy(newnode->txt, txt);
 	newnode->next = NULL;
 	newnode->prev = NULL;
@@ -77,19 +76,3 @@ Node * NewNode(int id, char * txt) {
 }
 
 
-
-
-void mainsssss() {
-	/*LinkedList * linkedlist = malloc(sizeof(LinkedList));
-	linkedlist->counter = 0;
-	linkedlist->head = NULL;
-	AddToLinkedList(linkedlist, 4, "Göteborg");
-	AddToLinkedList(linkedlist, 6, "Falun");
-	AddToLinkedList(linkedlist, 8, "Uppsala");
-	AddToLinkedList(linkedlist, 9, "Västerås");
-	AddToLinkedList(linkedlist, 2, "Malmö");
-	AddToLinkedList(linkedlist, 13, "linkoping");
-	AddToLinkedList(linkedlist, 16, "Hallsberg");
-
-	system("pause");*/
-}

@@ -1,7 +1,6 @@
 
 #include "LRUCache.h"
 #include <sstream>
-//#define ifnnull(a) if(a != NULL)
 
 LRUCache::LRUCache()
 {

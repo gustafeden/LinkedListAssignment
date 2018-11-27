@@ -8,14 +8,14 @@
 void AddToLinkedList(LinkedList * linkedlist, int id, const char *txt) {
 	if (linkedlist->counter >= CACHE_LIMIT)
 		RemoveLast(linkedlist);
-	Node * newnode = NewNode(id, txt);
+	struct Node * newnode = NewNode(id, txt);
 	if(linkedlist->counter != 0)
 		newnode->next = linkedlist->head;
 	linkedlist->head = newnode;
 	linkedlist->counter += 1;
 }
 
-void MoveNodeToHead(LinkedList * linkedlist, Node * FoundNode, Node * LastNode) {
+void MoveNodeToHead(LinkedList * linkedlist, struct Node * FoundNode, struct Node * LastNode) {
 	if (FoundNode->next == NULL) 
 		LastNode->next = NULL;
 	else
@@ -26,8 +26,8 @@ void MoveNodeToHead(LinkedList * linkedlist, Node * FoundNode, Node * LastNode) 
 }
 
 char * GetFromId(LinkedList * linkedlist, int id) {
-	Node * FoundNode = linkedlist->head;
-	Node * LastNode = NULL;
+	struct Node * FoundNode = linkedlist->head;
+	struct Node * LastNode = NULL;
 	if (linkedlist->counter != 0 && FoundNode->id == id)
 		return FoundNode->txt;
 	int temp_counter = 0;
@@ -46,8 +46,8 @@ char * GetFromId(LinkedList * linkedlist, int id) {
 }
 
 void RemoveLast(LinkedList * linkedlist) {
-	Node * temp = NULL;
-	Node * NewLast = NULL;
+	struct Node * temp = NULL;
+	struct Node * NewLast = NULL;
 	int temp_counter = 0;
 	while (temp_counter != linkedlist->counter - 1) {
 		if (temp_counter == 0)
@@ -67,29 +67,13 @@ void RemoveLast(LinkedList * linkedlist) {
 
 }
 
-Node * NewNode(int id, char * txt) {
-	Node * newnode = malloc(sizeof(Node));
+struct Node * NewNode(int id, char * txt) {
+	struct Node * newnode = (struct Node*) malloc(sizeof(struct Node));
 	newnode->id = id;
-	newnode->txt = malloc(sizeof(char) * strlen(txt) + 1);
+	newnode->txt = (char *) malloc(sizeof(char) * strlen(txt) + 1);
 	strcpy(newnode->txt, txt);
 	newnode->next = NULL;
 	return newnode;
 }
 
-
-
-
-void mainsssss() {
-	/*LinkedList * linkedlist = malloc(sizeof(LinkedList));
-	linkedlist->counter = 0;
-	linkedlist->head = NULL;
-	AddToLinkedList(linkedlist, 4, "Göteborg");
-	AddToLinkedList(linkedlist, 6, "Falun");
-	AddToLinkedList(linkedlist, 8, "Uppsala");
-	AddToLinkedList(linkedlist, 9, "Västerås");
-	AddToLinkedList(linkedlist, 2, "Malmö");
-	AddToLinkedList(linkedlist, 13, "linkoping");
-	AddToLinkedList(linkedlist, 16, "Hallsberg");
-	
-	system("pause");*/
-}
+//måste vi malloca hela tiden när vi vet cache limit?
