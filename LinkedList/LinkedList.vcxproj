@@ -116,7 +116,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DoubleLinkedList.c" />
-    <ClCompile Include="LinkedList.c" />
     <ClCompile Include="LRUCache.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="DisplayMessageEndpoint.cpp" />
@@ -124,7 +123,6 @@
   <ItemGroup>
     <ClInclude Include="DisplayMessageEndpoint.h" />
     <ClInclude Include="DoubleLinkedList.h" />
-    <ClInclude Include="LinkedList.h" />
     <ClInclude Include="LRUCache.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -10,6 +10,7 @@ struct Node {
 typedef struct {
 	struct Node *head, *tail;
 	int counter;
+	int maxsize;
 } LinkedList;
 
 void MoveNodeToHead(LinkedList * linkedlist, Node * node);

@@ -8,22 +8,21 @@
 std::string GetDestinationFrom(int destinationId, LRUCache * cache)
 {
 	std::string destinationtxt = cache->GetFromCache(destinationId);
-	if (destinationtxt.size() != 0) {
+	if (!destinationtxt.empty()) {
 		Sleep(100);
-		return destinationtxt;
 	}
 	else {
 		DisplayMessageDestinationService service;
 		destinationtxt = service.GetDestinationName(destinationId);
 		cache->AddToCache(destinationId, destinationtxt);
-		return destinationtxt;
 	}
+	return destinationtxt;
 }
 
 void main()
 {
 	SetConsoleOutputCP(1252);
-	LRUCache * cache = new LRUCache();
+	LRUCache * cache = new LRUCache(10);
 	DisplayMessageEndpoint *endPoint = new DisplayMessageEndpoint();
 	std::vector <std::string> messageboard;
 	while (true)
